@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="La Chispa del Propósito: experiencia gamificada para estudiantes de nuevo ingreso de Humanidades de la UNED.">
+<title>La Chispa del Propósito | Aventura UNED</title>
+<style>
+:root{--navy:#1E3A5F;--green:#4CAF50;--yellow:#F4C542;--ink:#172536;--muted:#586779;--paper:#f5f7fa;--white:#fff;--line:#dce3eb;--shadow:0 12px 34px rgba(18,42,68,.09);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#174f83}a:focus-visible,button:focus-visible{outline:3px solid #b07b00;outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:8px;background:white;padding:10px;z-index:99}.skip:focus{left:8px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.navwrap{max-width:1180px;margin:auto;padding:10px 22px;display:flex;align-items:center;gap:20px;justify-content:space-between}
+.brand{display:flex;gap:10px;align-items:center;color:var(--navy);font-weight:850;text-decoration:none;line-height:1.15}
+.spark{width:34px;height:34px;border-radius:11px;background:var(--yellow);display:grid;place-items:center;color:var(--navy);font-size:22px}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+nav a{font-size:.88rem;text-decoration:none;padding:8px 10px;border-radius:10px;color:var(--navy);font-weight:650}
+nav a:hover,nav a:focus{background:#edf3f8}
+main{max-width:1180px;margin:auto;padding:28px 22px 70px}
+.hero{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(125deg,#142e4c,#1E3A5F 62%,#286044);color:white;padding:clamp(32px,7vw,76px);box-shadow:var(--shadow)}
+.hero:after{content:"✦";position:absolute;right:7%;top:5%;font-size:clamp(110px,22vw,250px);color:rgba(244,197,66,.18);transform:rotate(12deg)}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.78rem;color:#f9d96e}
+h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:1.04;max-width:760px;margin:12px 0 20px;letter-spacing:-.04em}
+.hero p{font-size:1.12rem;max-width:700px;color:#edf3fa}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:12px;background:var(--yellow);color:#182d43;font-weight:800;text-decoration:none;border:2px solid var(--yellow)}
+.btn.secondary{background:transparent;color:white;border-color:rgba(255,255,255,.65)}
+.btn.dark{background:var(--navy);border-color:var(--navy);color:white}
+.section{margin-top:54px}.sectionhead{margin-bottom:22px}
+.eyebrow{color:#39734b;font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.15;color:var(--navy);margin:5px 0 10px;letter-spacing:-.025em}
+h3{color:var(--navy);line-height:1.25;margin:0 0 8px}
+.lead{font-size:1.08rem;color:var(--muted);max-width:850px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{grid-column:span 4;background:white;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card.wide{grid-column:span 6}.card.full{grid-column:1/-1}
+.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;border-radius:999px;padding:4px 10px;background:#edf4ee;color:#285d36;font-size:.78rem;font-weight:800;margin:2px 4px 4px 0}
+.tag.gold{background:#fff5d2;color:#735500}.muted{color:var(--muted)}
+.callout{border-left:5px solid var(--yellow);background:#fff9e7;padding:18px 20px;border-radius:0 14px 14px 0}
+.story{background:linear-gradient(140deg,#eaf1f7,#f6f9fb);border:1px solid #d7e2ec;border-radius:22px;padding:clamp(22px,4vw,36px)}
+.story strong{color:var(--navy)}
+.mapline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0}
+.mapstep{background:white;border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center;min-width:0}
+.mapstep b{display:block;color:var(--navy);font-size:.9rem}.mapstep span{font-size:1.55rem;display:block;margin-bottom:5px}
+.mission{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);margin:18px 0}
+.mission summary{cursor:pointer;list-style:none;padding:20px 24px;display:flex;align-items:center;gap:15px}
+.mission summary::-webkit-details-marker{display:none}
+.mission summary:after{content:"＋";margin-left:auto;font-size:1.4rem;color:var(--navy);font-weight:700}
+.mission[open] summary:after{content:"−"}
+.mnum{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#eaf1f7;display:grid;place-items:center;font-weight:900;color:var(--navy)}
+.mbody{padding:0 24px 25px;border-top:1px solid var(--line)}
+.mbody h4{margin:18px 0 5px;color:#285d36}
+ul{padding-left:22px}li{margin:5px 0}
+table{width:100%;border-collapse:collapse;background:white;font-size:.93rem;margin:16px 0;border:1px solid var(--line)}
+th,td{padding:11px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#eaf0f6;color:var(--navy)}
+.tablewrap{overflow-x:auto;border-radius:12px}
+.resource{border:1px dashed #a9b8c8;border-radius:14px;padding:16px;background:#fbfcfd}
+.pending{color:#765800;background:#fff4cf;border:1px solid #f0d77c;border-radius:9px;padding:3px 8px;font-size:.8rem;font-weight:750}
+.small{font-size:.88rem}
+footer{background:#142e4c;color:#edf3fa;padding:32px 22px}
+footer .inner{max-width:1180px;margin:auto;display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}
+footer p{margin:4px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+@media(max-width:850px){.card{grid-column:span 6}.card.wide{grid-column:span 12}.navwrap{align-items:flex-start;flex-direction:column;gap:8px}nav{justify-content:flex-start}nav a{padding:6px 8px}}
+@media(max-width:560px){main{padding:16px 14px 50px}.hero{border-radius:20px}.card{grid-column:span 12}.mapline{grid-template-columns:1fr 1fr}.mapstep:last-child{grid-column:1/-1}nav{gap:2px}nav a{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header><div class="navwrap">
+<a class="brand" href="#inicio"><span class="spark" aria-hidden="true">✦</span><span>LA CHISPA<br>DEL PROPÓSITO</span></a>
+<nav aria-label="Navegación principal">
+<a href="#aprendizajes">Aprendizajes</a><a href="#historia">Historia</a><a href="#participar">Cómo participar</a><a href="#misiones">Misiones</a><a href="#recursos">Recursos</a><a href="#evaluacion">Evaluación</a><a href="#proyecto">Proyecto</a>
+</nav></div></header>
+<main id="contenido">
+<section class="hero" id="inicio">
+<div class="kicker">Una aventura de aprendizaje · Humanidades UNED</div>
+<h1>La Chispa del Propósito</h1>
+<p>Descubre qué te mueve, reconoce tus fortalezas y construye una ruta que conecte tu proyecto de vida con tu camino universitario.</p>
+<p><strong>Tu aventura comienza aquí.</strong> Durante cinco semanas asumirás el papel de Explorador o Exploradora del Propósito y recuperarás los cuatro fragmentos del mapa: Identidad, Valores, Autonomía y Futuro.</p>
+<div class="actions"><a class="btn" href="#aprendizajes">Explorar la experiencia ↓</a><a class="btn secondary" href="#misiones">Ver las misiones</a></div>
+</section>
+
+<section class="section" id="aprendizajes">
+<div class="sectionhead"><div class="eyebrow">Tu brújula</div><h2>¿Qué vas a descubrir?</h2><p class="lead">La experiencia está dirigida a estudiantes de nuevo ingreso de Humanidades de la UNED. A lo largo de cinco semanas trabajarás el autoconocimiento, los valores, la autonomía y tus metas futuras.</p></div>
+<div class="grid">
+<article class="card"><span class="tag">Identidad</span><h3>Reconocer quién eres</h3><p>Identificar fortalezas, intereses y características personales que contribuyen a tu proyecto de vida.</p></article>
+<article class="card"><span class="tag">Valores</span><h3>Comprender qué te orienta</h3><p>Analizar los principios que guían tus decisiones personales, académicas y profesionales.</p></article>
+<article class="card"><span class="tag">Autonomía</span><h3>Aprender a organizarte</h3><p>Desarrollar estrategias de planificación, autorregulación y gestión del tiempo para estudiar a distancia.</p></article>
+<article class="card"><span class="tag">Futuro</span><h3>Diseñar tu ruta</h3><p>Vincular metas personales y profesionales con tu trayectoria académica universitaria.</p></article>
+<article class="card wide"><span class="tag gold">Producto integrador</span><h3>Tu Mapa de Propósito Personal</h3><p>Integrarás los cuatro fragmentos en una propuesta personal que conecte quién eres, qué valoras, cómo aprenderás y hacia dónde deseas avanzar.</p></article>
+<article class="card wide"><span class="tag">Duración</span><h3>Cinco semanas</h3><p>Cuatro misiones formativas de dos horas cada una y una misión final integradora de tres horas. Tiempo total previsto: 11 horas.</p></article>
+</div>
+<div class="callout" style="margin-top:18px"><strong>Al finalizar podrás:</strong> reflexionar sobre tu identidad, valores y metas; relacionar tu proyecto de vida con la formación universitaria; aplicar estrategias de aprendizaje autónomo; participar en espacios colaborativos y elaborar un Mapa de Propósito Personal fundamentado.</div>
+</section>
+
+<section class="section" id="historia">
+<div class="sectionhead"><div class="eyebrow">La leyenda</div><h2>El Universo de las Chispas</h2></div>
+<div class="story">
+<p>En el <strong>Universo de las Chispas</strong>, cada persona posee una chispa única que representa sus talentos, valores, sueños y propósito de vida. Pero muchas chispas se han debilitado por la incertidumbre, el miedo al fracaso, la falta de confianza o la pérdida de motivación.</p>
+<p>Al ingresar a la <strong>Academia de Exploradores del Propósito</strong>, recibes una noticia: el Mapa del Propósito ha sido fragmentado. Una fuerza llamada <strong>la Niebla de la Desmotivación</strong> se expande y provoca dudas, procrastinación e inseguridad, desconectando los estudios de los proyectos de vida.</p>
+<p>Tu misión es recorrer cuatro territorios y recuperar los fragmentos perdidos. Cada decisión y cada reflexión contribuirán a construir tu propio desenlace.</p>
+<p><strong>Misión general:</strong> recuperar la Chispa del Propósito y restaurar el Mapa del Propósito, explorando tu identidad, tus valores, tu autonomía y tus metas personales para construir un proyecto de vida que fortalezca tu motivación, permanencia y éxito en los estudios a distancia de la UNED.</p>
+</div>
+<div class="mapline" aria-label="Recorrido narrativo de las cinco etapas">
+<div class="mapstep"><span aria-hidden="true">✧</span><b>Identidad</b><small>Territorio 1</small></div>
+<div class="mapstep"><span aria-hidden="true">◇</span><b>Valores</b><small>Territorio 2</small></div>
+<div class="mapstep"><span aria-hidden="true">⌁</span><b>Autonomía</b><small>Territorio 3</small></div>
+<div class="mapstep"><span aria-hidden="true">➶</span><b>Futuro</b><small>Territorio 4</small></div>
+<div class="mapstep"><span aria-hidden="true">✦</span><b>Mapa restaurado</b><small>Misión final</small></div>
+</div>
+<p class="muted small">Los símbolos son recursos gráficos tipográficos de esta versión web, no insignias oficiales descargables.</p>
+</section>
+
+<section class="section" id="participar">
+<div class="sectionhead"><div class="eyebrow">Tu recorrido</div><h2>¿Cómo participar?</h2><p class="lead">Avanza en orden. Cada misión tiene una evidencia que debes completar y entregar por los medios que indique la persona facilitadora.</p></div>
+<div class="grid">
+<article class="card"><h3>1. Entra y oriéntate</h3><p>Accede mediante el enlace que comparta la persona facilitadora. Lee la historia y revisa las instrucciones de la misión.</p></article>
+<article class="card"><h3>2. Explora y crea</h3><p>Realiza las actividades, consulta los materiales y registra tus hallazgos en tu bitácora de reflexión.</p></article>
+<article class="card"><h3>3. Comparte y mejora</h3><p>Participa en los espacios colaborativos previstos. Atiende la retroalimentación y mejora tus evidencias antes de avanzar.</p></article>
+</div>
+<div class="callout" style="margin-top:18px"><strong>Reglas del recorrido</strong><ul><li>Completa las misiones en secuencia; cada una debe completarse antes de acceder a la siguiente.</li><li>Entrega las evidencias dentro de los plazos que establezca la persona facilitadora.</li><li>Mantén el respeto y la colaboración en los espacios de interacción.</li><li>Puedes repetir actividades formativas para mejorar tus resultados antes de avanzar.</li></ul></div>
+<p><strong>Requisitos técnicos:</strong> dispositivo con navegador web actualizado y conexión a internet. Algunas actividades pueden requerir acceso a Google Sites, Formularios de Google o Canva; los enlaces y permisos concretos están <span class="pending">pendientes de habilitar</span>.</p>
+</section>
+
+<section class="section" id="misiones">
+<div class="sectionhead"><div class="eyebrow">Cinco etapas · Cinco semanas</div><h2>Misiones y cronograma</h2><p class="lead">Abre cada misión para consultar el reto, las actividades, la evidencia y la condición narrativa para avanzar.</p></div>
+<details class="mission" open><summary><span class="mnum">01</span><span><strong>El Territorio de la Identidad</strong><br><small class="muted">Semana 1 · 2 horas · Fragmento de la Identidad</small></span></summary>
+<div class="mbody"><p>La Niebla de la Desmotivación ha ocultado el Fragmento de la Identidad. Para recuperarlo descubrirás quién eres, cuáles son tus fortalezas y qué te impulsa a seguir aprendiendo.</p>
+<h4>Objetivo</h4><p>Reconocer fortalezas, intereses y características personales que contribuyen a la construcción del proyecto de vida.</p>
+<h4>Reto: Perfil del Explorador</h4><ol><li>Completa un cuestionario de autoconocimiento.</li><li>Identifica tus fortalezas, intereses y habilidades.</li><li>Elabora una representación visual de tu perfil.</li><li>Registra tus reflexiones en la bitácora digital.</li></ol>
+<h4>Contenido y competencia</h4><p>Autoconocimiento e identidad personal. Reflexiona sobre tus características personales para comprender cómo influyen en tus decisiones académicas y profesionales.</p>
+<h4>Organización y materiales</h4><p>Trabajo individual. Rol: Explorador o Exploradora del Propósito. Materiales previstos: cuestionario digital, bitácora, plantilla de perfil y Google Sites.</p>
+<h4>Evidencia y criterio</h4><p><strong>Evidencia:</strong> Perfil del Explorador. <strong>Criterio:</strong> identifica fortalezas e intereses; relaciona sus características con metas académicas; evidencia reflexión personal y presenta la actividad de forma organizada.</p>
+<h4>Retroalimentación y avance</h4><p>Comentarios del facilitador y autoevaluación al finalizar. Al completar y entregar el Perfil del Explorador, se obtiene narrativamente el Fragmento de la Identidad.</p>
+<div class="resource"><strong>Recurso R1 · Carta del Consejo de los Exploradores</strong><p>“Explorador(a), la Niebla de la Desmotivación ha ocultado el Fragmento de la Identidad. Para recuperarlo deberás descubrir quién eres, cuáles son tus fortalezas y qué te impulsa a seguir aprendiendo. Completa las pruebas de autoconocimiento y registra tus hallazgos en tu Bitácora del Propósito. Solo entonces podrás obtener el primer fragmento del mapa.”</p><span class="pending">Pendiente: diseño visual en Google Sites</span></div>
+</div></details>
+
+<details class="mission"><summary><span class="mnum">02</span><span><strong>El Valle de los Valores</strong><br><small class="muted">Semana 2 · 2 horas · Fragmento de los Valores</small></span></summary>
+<div class="mbody"><p>Los Guardianes del Valle custodian el Fragmento de los Valores. Para obtenerlo descubrirás cuáles principios orientan tu vida.</p>
+<h4>Objetivo</h4><p>Identificar los valores que orientan las decisiones personales, académicas y profesionales.</p>
+<h4>Reto: Mapa de Valores Personales</h4><ol><li>Analiza una situación reflexiva.</li><li>Selecciona diez valores significativos.</li><li>Reduce la selección a cinco valores prioritarios.</li><li>Relaciona esos valores con tus metas y decisiones de vida.</li></ol>
+<h4>Contenido y competencia</h4><p>Valores y proyecto de vida. Analiza los valores que guían tus acciones y decisiones.</p>
+<h4>Organización y materiales</h4><p>Trabajo individual y participación en foro colaborativo. Materiales previstos: lectura guiada, foro virtual, Canva y Google Sites.</p>
+<h4>Evidencia y criterio</h4><p><strong>Evidencia:</strong> Mapa de Valores Personales. <strong>Criterio:</strong> identifica y justifica valores relevantes, los relaciona con su proyecto de vida, participa en el intercambio de ideas y presenta una reflexión fundamentada.</p>
+<h4>Retroalimentación y avance</h4><p>Comentarios de pares y observaciones del facilitador. Para avanzar, entrega el Mapa de Valores Personales y participa en el foro.</p>
+<div class="resource"><strong>Recurso R2 · Pergamino de los Valores Ancestrales</strong><p>“Los Guardianes del Valle han protegido durante siglos los valores que orientan las mejores decisiones. Para encontrar el Fragmento de los Valores deberás identificar aquellos principios que te representan. Elige los diez más importantes, reduce la lista a cinco y explica cómo influyen en tus metas personales, académicas y profesionales.”</p><span class="pending">Pendiente: maquetación como PDF o página de Google Sites</span></div>
+</div></details>
+
+<details class="mission"><summary><span class="mnum">03</span><span><strong>La Montaña de la Autonomía</strong><br><small class="muted">Semana 3 · 2 horas · Fragmento de la Autonomía</small></span></summary>
+<div class="mbody"><p>El Fragmento de la Autonomía se encuentra en la cima. Para alcanzarlo superarás desafíos propios del estudio a distancia.</p>
+<h4>Objetivo</h4><p>Desarrollar estrategias para la gestión autónoma del aprendizaje en educación a distancia.</p>
+<h4>Reto: Plan Personal de Estudio</h4><ol><li>Analiza tus hábitos de estudio.</li><li>Identifica obstáculos que puedan afectar tu aprendizaje.</li><li>Diseña un horario semanal.</li><li>Establece estrategias para alcanzar tus metas académicas.</li></ol>
+<h4>Contenido y competencia</h4><p>Autorregulación, organización del tiempo y aprendizaje autónomo. Gestiona tu proceso de aprendizaje mediante estrategias de planificación y seguimiento.</p>
+<h4>Organización y materiales</h4><p>Trabajo individual. Rol: Explorador o Exploradora del Propósito. Materiales previstos: plantilla de horario, organizador digital, guía de estudio y Google Sites.</p>
+<h4>Evidencia y criterio</h4><p><strong>Evidencia:</strong> Plan Personal de Estudio. <strong>Criterio:</strong> diseña estrategias viables de organización, identifica desafíos reales, propone acciones concretas y presenta un plan coherente y aplicable.</p>
+<h4>Retroalimentación y avance</h4><p>Revisión mediante rúbrica y comentarios del facilitador. Para avanzar, presenta el Plan Personal de Estudio completo.</p>
+<div class="resource"><strong>Recurso R3 · Bitácora del Ascenso a la Autonomía</strong><p>“La cima de la Montaña de la Autonomía solo puede alcanzarse mediante la organización y la constancia. Analiza tus hábitos actuales, identifica obstáculos que puedan afectar tu aprendizaje y diseña una estrategia que te permita avanzar con éxito en tu trayectoria universitaria. Cada decisión fortalecerá tu capacidad para aprender de forma independiente.”</p><span class="pending">Pendiente: diseño de plantilla digital</span></div>
+</div></details>
+
+<details class="mission"><summary><span class="mnum">04</span><span><strong>La Ciudad del Futuro</strong><br><small class="muted">Semana 4 · 2 horas · Fragmento del Futuro</small></span></summary>
+<div class="mbody"><p>En la Ciudad del Futuro se encuentra el último fragmento. Visualizarás el camino que deseas recorrer para alcanzarlo.</p>
+<h4>Objetivo</h4><p>Vincular las metas personales y profesionales con la trayectoria académica universitaria.</p>
+<h4>Reto: Ruta de Futuro</h4><ol><li>Define metas a corto, mediano y largo plazo.</li><li>Identifica las acciones necesarias para alcanzarlas.</li><li>Representa visualmente el recorrido.</li></ol>
+<h4>Contenido y competencia</h4><p>Proyecto de vida y metas futuras. Diseña metas académicas y profesionales coherentes con tus intereses y valores.</p>
+<h4>Organización y materiales</h4><p>Trabajo individual. Rol: Explorador o Exploradora del Propósito. Materiales previstos: Canva, plantilla de metas, organizador gráfico y Google Sites.</p>
+<h4>Evidencia y criterio</h4><p><strong>Evidencia:</strong> Ruta de Futuro. <strong>Criterio:</strong> formula metas claras y alcanzables, relaciona los estudios universitarios con su futuro, establece acciones concretas y presenta una visión coherente.</p>
+<h4>Retroalimentación y avance</h4><p>Autoevaluación y comentarios del facilitador. Para avanzar, completa y presenta la Ruta de Futuro.</p>
+<div class="resource"><strong>Recurso R4 · Mapa de Rutas hacia el Futuro</strong><p>“Bienvenido(a) a la Ciudad del Futuro. Para encontrar el último fragmento del mapa deberás visualizar el camino que deseas recorrer. Define tus metas a corto, mediano y largo plazo, identifica acciones concretas para alcanzarlas y reconoce los recursos y apoyos que te ayudarán a mantenerte en movimiento hacia tus objetivos.”</p><span class="pending">Pendiente: construcción gráfica en Canva e incorporación al sitio</span></div>
+</div></details>
+
+<details class="mission"><summary><span class="mnum">05</span><span><strong>Restaurar el Mapa del Propósito</strong><br><small class="muted">Semana 5 · 3 horas · Misión integradora</small></span></summary>
+<div class="mbody"><p>Con los cuatro fragmentos recuperados, podrás restaurar el Mapa del Propósito y disipar la Niebla de la Desmotivación.</p>
+<h4>Objetivo</h4><p>Integrar los aprendizajes obtenidos durante la experiencia para construir un proyecto de vida con sentido de propósito.</p>
+<h4>Reto: Mapa de Propósito Personal</h4><ol><li>Integra las evidencias de las misiones anteriores.</li><li>Construye tu mapa final.</li><li>Redacta una reflexión sobre tu motivación y permanencia en la UNED.</li></ol>
+<h4>Contenido y competencia</h4><p>Proyecto de vida integral. Relaciona identidad, valores, autonomía y metas futuras en una propuesta personal coherente.</p>
+<h4>Organización y materiales</h4><p>Trabajo individual. Rol: Guardián o Guardiana de la Chispa del Propósito. Materiales previstos: productos anteriores, Canva, bitácora digital y Google Sites.</p>
+<h4>Evidencia y criterio</h4><p><strong>Evidencia:</strong> Mapa de Propósito Personal y reflexión final. <strong>Criterio:</strong> integra coherentemente identidad, valores, autonomía y metas futuras; evidencia reflexión crítica; relaciona aprendizajes con su permanencia en la UNED y presenta un producto completo y fundamentado.</p>
+<h4>Retroalimentación y cierre</h4><p>Valoración final mediante rúbrica, autoevaluación y comparación entre diagnóstico inicial y cierre. Al completar el mapa, obtienes el reconocimiento simbólico de Guardián o Guardiana de la Chispa del Propósito.</p>
+<div class="resource"><strong>Recurso R5 · Mapa del Propósito Personal</strong><p>“Has recuperado los cuatro fragmentos del Mapa del Propósito: Identidad, Valores, Autonomía y Futuro. Ahora debes unirlos para construir una visión integral de quién eres, qué te motiva, cómo aprenderás y hacia dónde deseas llegar. Tu misión final consiste en crear un Mapa del Propósito Personal que represente tu proyecto de vida y tu compromiso con tu trayectoria universitaria en la UNED.”</p><span class="pending">Pendiente: diseño final de plantilla Canva y publicación</span></div>
+</div></details>
+</section>
+
+<section class="section" id="recursos">
+<div class="sectionhead"><div class="eyebrow">Tu equipo de exploración</div><h2>Recursos y componentes</h2><p class="lead">Estos son los componentes definidos en la propuesta. Los textos narrativos están incorporados; las plantillas y recursos externos se identifican según su estado real.</p></div>
+<div class="grid">
+<article class="card"><h3>Pasaporte del Explorador</h3><p>Instrumento transversal para registrar misiones completadas, insignias obtenidas, reflexiones breves y fragmentos recuperados.</p><span class="pending">Pendiente: diseño gráfico</span></article>
+<article class="card"><h3>Bitácora de reflexión</h3><p>Espacio para registrar hallazgos personales y reflexiones durante las cinco misiones.</p><span class="pending">Pendiente: plantilla digital</span></article>
+<article class="card"><h3>Avatar de Explorador</h3><p>Representa el rol que asume cada participante durante la aventura.</p><span class="pending">Pendiente: diseño visual definido</span></article>
+<article class="card"><h3>Insignias digitales</h3><p>Reconocimientos vinculados al cumplimiento de las misiones y a la participación, exploración y colaboración.</p><span class="pending">Pendiente: archivos gráficos y condiciones operativas de emisión</span></article>
+<article class="card"><h3>Fragmentos coleccionables</h3><p>Identidad, Valores, Autonomía y Futuro: representan la progresión narrativa de las cuatro misiones.</p><span class="pending">Pendiente: diseño gráfico</span></article>
+<article class="card"><h3>Tablero de progreso</h3><p>Representa el avance narrativo a través de las cinco etapas. Esta página muestra el recorrido previsto, pero no guarda el progreso de cada estudiante.</p><span class="pending">Demostración visual; sin guardado de progreso</span></article>
+<article class="card full"><h3>Recursos complementarios</h3><p>Cuestionario de autoconocimiento, lectura guiada, foro, plantilla de horario, organizador digital, guía de estudio, plantilla de metas y formularios de autoevaluación inicial y final.</p><span class="pending">Pendientes: archivos, enlaces, permisos y configuración de servicios</span></article>
+</div>
+<p class="small muted">No se han creado enlaces activos a Formularios de Google, Canva, foros ni plataformas de entrega. La persona facilitadora debe incorporarlos y comprobar sus permisos.</p>
+</section>
+
+<section class="section" id="evaluacion">
+<div class="sectionhead"><div class="eyebrow">Cómo reconocerás tus avances</div><h2>Evaluación del aprendizaje</h2><p class="lead">La evaluación se centra en tus evidencias, reflexión y aplicación de estrategias. Las insignias y reconocimientos son simbólicos y no determinan por sí mismos tu nota.</p></div>
+<div class="grid">
+<article class="card"><h3>Al comenzar</h3><p>Cuestionario sobre expectativas, motivación y proyecto de vida, junto con una autoevaluación inicial.</p></article>
+<article class="card"><h3>Durante las misiones</h3><p>Revisión de evidencias, participación en foros y actividades colaborativas, y retroalimentación formativa en cada reto.</p></article>
+<article class="card"><h3>Al finalizar</h3><p>Presentación del Mapa de Propósito Personal, autoevaluación final y reflexión de cierre.</p></article>
+</div>
+<h3 style="margin-top:26px">¿Qué se tendrá en cuenta?</h3>
+<ul>
+<li>Identificas fortalezas, intereses, valores y metas personales de manera reflexiva y fundamentada.</li>
+<li>Relacionas tus características personales con tu proyecto de vida y trayectoria universitaria.</li>
+<li>Analizas la importancia de los valores para tomar decisiones académicas y personales.</li>
+<li>Diseñas estrategias viables de autonomía y autorregulación para estudiar a distancia.</li>
+<li>Formulas metas académicas y profesionales claras, alcanzables y coherentes.</li>
+<li>Integras identidad, valores, autonomía y metas futuras en un proyecto de vida articulado.</li>
+<li>Reflexionas críticamente sobre la motivación y la permanencia en la educación a distancia.</li>
+</ul>
+<h3>Instrumentos y evidencias</h3>
+<p>Se utilizará una rúbrica analítica, una lista de cotejo y autoevaluaciones. Las evidencias serán: Perfil del Explorador; Mapa de Valores Personales; Plan Personal de Estudio; Ruta de Futuro; Mapa de Propósito Personal; participación en foros; bitácora; y autoevaluaciones inicial y final.</p>
+<div class="tablewrap"><table><thead><tr><th>Evidencia</th><th>Ponderación indicada en la propuesta</th></tr></thead><tbody>
+<tr><td>Misión 1 · Perfil del Explorador</td><td>15%</td></tr><tr><td>Misión 2 · Mapa de Valores Personales</td><td>15%</td></tr><tr><td>Misión 3 · Plan Personal de Estudio</td><td>20%</td></tr><tr><td>Misión 4 · Ruta de Futuro</td><td>20%</td></tr><tr><td>Misión final · Mapa de Propósito Personal</td><td>30%</td></tr><tr><th>Total</th><th>100%</th></tr>
+</tbody></table></div>
+<p class="small muted">La propuesta también incluye una formulación alternativa para el caso de que el proyecto sea solo una propuesta de gamificación y no se asigne calificación numérica. La persona facilitadora debe confirmar cuál modalidad aplica antes de publicar los porcentajes como definitivos.</p>
+<div class="callout"><strong>Importante:</strong> los reconocimientos del juego no son calificaciones. La valoración del aprendizaje se realizará mediante las evidencias e instrumentos definidos por la persona facilitadora. Este apartado no es la rúbrica que califica la Actividad 2 del curso universitario.</div>
+</section>
+
+<section class="section" id="proyecto">
+<div class="sectionhead"><div class="eyebrow">Información del proyecto</div><h2>Diseño docente y fundamentación</h2><p class="lead">Este apartado permite consultar la lógica pedagógica que sostiene la experiencia, sin confundirla con las instrucciones dirigidas al alumnado.</p></div>
+<h3>Contexto y justificación</h3>
+<p>La propuesta se sitúa en Humanidades de la UNED y se dirige a estudiantes de nuevo ingreso con experiencias académicas heterogéneas, procedencia geográfica distribuida por el país y responsabilidades laborales, familiares u otras. El diseño considera la necesidad de desarrollar autonomía y autorregulación en educación a distancia, así como la posible incertidumbre sobre el proyecto académico y profesional.</p>
+<p>La gamificación se plantea como estrategia para promover autoconocimiento, autonomía y construcción de un proyecto de vida vinculado con la permanencia universitaria. La eficacia de la propuesta no se da por demostrada: se prevé una autoevaluación diagnóstica inicial y otra final, además de registros de participación, para identificar posibles cambios tras su aplicación.</p>
+<h3>Tabla 1 · Justificación de dinámicas y componentes</h3>
+<div class="tablewrap"><table><thead><tr><th>Marco / elemento</th><th>Aplicación o justificación en la propuesta</th></tr></thead><tbody>
+<tr><td>RAMP · Relación</td><td>Espacios colaborativos para compartir experiencias, retos y estrategias; pequeños grupos para analizar casos y construir propuestas de permanencia.</td></tr>
+<tr><td>RAMP · Autonomía</td><td>Elección del orden de actividades complementarias, recursos, formato de evidencias y construcción personal del mapa.</td></tr>
+<tr><td>RAMP · Maestría</td><td>Práctica progresiva de habilidades de aprendizaje autónomo, organización y reflexión; retroalimentación y oportunidades de mejora.</td></tr>
+<tr><td>RAMP · Propósito</td><td>Conectar la formación universitaria con metas personales, familiares y profesionales y con la permanencia en la UNED.</td></tr>
+<tr><td>Bartle · Killers</td><td>La competencia no es central; se sustituyen rankings y eliminación por desafíos cooperativos y reconocimientos simbólicos.</td></tr>
+<tr><td>Bartle · Achievers</td><td>Metas mediante finalización de misiones, insignias y construcción progresiva del Mapa del Propósito.</td></tr>
+<tr><td>Bartle · Explorers</td><td>Recursos opcionales, testimonios, herramientas de autoconocimiento y rutas alternativas de aprendizaje.</td></tr>
+<tr><td>Bartle · Socializers</td><td>Foros de reflexión, retroalimentación entre pares, intercambio de experiencias y dinámicas colaborativas.</td></tr>
+</tbody></table></div>
+<h3>Tabla de diseño docente · Dinámicas, mecánicas y componentes</h3>
+<div class="tablewrap"><table><thead><tr><th>Tipo de elemento</th><th>Elemento elegido</th><th>Aplicación concreta</th><th>Necesidad que atiende</th><th>Propósito educativo</th></tr></thead><tbody>
+<tr><td>Dinámica</td><td>Propósito</td><td>Conectar estudios universitarios con proyecto de vida.</td><td>Incertidumbre y desconexión entre estudio y aspiraciones.</td><td>Dar sentido personal a la trayectoria universitaria.</td></tr>
+<tr><td>Dinámica</td><td>Progresión</td><td>Recuperar cuatro fragmentos y restaurar el mapa.</td><td>Necesidad de visualizar avances y continuidad.</td><td>Organizar el aprendizaje en etapas con sentido.</td></tr>
+<tr><td>Dinámica</td><td>Exploración</td><td>Descubrir fortalezas, valores y metas mediante retos y recursos opcionales.</td><td>Necesidad de autoconocimiento y reflexión.</td><td>Favorecer decisiones personales fundamentadas.</td></tr>
+<tr><td>Dinámica</td><td>Relación</td><td>Foros y espacios colaborativos.</td><td>Necesidad de pertenencia y apoyo entre pares.</td><td>Construir conocimiento y apoyo compartidos.</td></tr>
+<tr><td>Mecánica</td><td>Misiones secuenciales</td><td>Cuatro misiones y una misión final integradora.</td><td>Organización y continuidad del recorrido.</td><td>Secuenciar aprendizajes y evidencias.</td></tr>
+<tr><td>Mecánica</td><td>Desafíos reflexivos y toma de decisiones</td><td>Retos de identidad, valores, autonomía y futuro.</td><td>Conectar contenidos con experiencias personales.</td><td>Aplicar aprendizajes a decisiones propias.</td></tr>
+<tr><td>Mecánica</td><td>Recopilación de evidencias y desbloqueo</td><td>Entregas requeridas para recuperar fragmentos y avanzar.</td><td>Hacer visible la relación entre actividad y progreso.</td><td>Documentar el aprendizaje.</td></tr>
+<tr><td>Mecánica</td><td>Autoevaluación y colaboración</td><td>Autoevaluaciones y actividades en foros.</td><td>Seguimiento, reflexión y apoyo social.</td><td>Revisar avances y aprender con otras personas.</td></tr>
+<tr><td>Componente</td><td>Mapa del Propósito y fragmentos</td><td>Representan la integración de identidad, valores, autonomía y futuro.</td><td>Necesidad de dar coherencia al proceso.</td><td>Integrar aprendizajes en un producto personal.</td></tr>
+<tr><td>Componente</td><td>Avatar, insignias y pasaporte</td><td>Representan el rol, reconocimientos y registro de misiones.</td><td>Orientación, reconocimiento y seguimiento simbólico.</td><td>Hacer visible la participación y la progresión.</td></tr>
+<tr><td>Componente</td><td>Tablero de progreso y bitácora</td><td>Visualización de etapas y registro de reflexiones.</td><td>Seguimiento del proceso y autorregulación.</td><td>Apoyar la reflexión sobre el propio avance.</td></tr>
+</tbody></table></div>
+<p class="small muted"><strong>Nota de revisión:</strong> la propuesta describe desbloqueo de territorios y fragmentos como parte de la progresión, y también menciona pasaporte/tablero como seguimiento. Conviene precisar si el pasaporte y el tablero son dos soportes distintos o dos vistas del mismo seguimiento. No se han añadido puntos, rankings ni eliminación.</p>
+<h3>Tabla 2 · Planificación didáctica y gamificada</h3>
+<div class="tablewrap"><table><thead><tr><th>Sesión</th><th>Contenido</th><th>Descripción o material de aula</th><th>Narrativa</th><th>Descripción o material de gamificación</th></tr></thead><tbody>
+<tr><td>1 · Semana 1 · 2 h</td><td>Autoconocimiento e identidad personal.</td><td>Cuestionario de autoconocimiento; identificación de fortalezas, intereses y habilidades; Perfil del Explorador y bitácora.</td><td>La Niebla oculta el Fragmento de la Identidad.</td><td>Exploración y descubrimiento; entrega del Perfil del Explorador para recuperar el fragmento. Carta R1.</td></tr>
+<tr><td>2 · Semana 2 · 2 h</td><td>Valores y proyecto de vida.</td><td>Situación reflexiva; selección y priorización de valores; Mapa de Valores Personales y foro.</td><td>Los Guardianes del Valle custodian el Fragmento de los Valores.</td><td>Reflexión y colaboración; entrega del mapa y participación en foro. Pergamino R2.</td></tr>
+<tr><td>3 · Semana 3 · 2 h</td><td>Autorregulación, organización del tiempo y aprendizaje autónomo.</td><td>Análisis de hábitos y obstáculos; horario semanal; Plan Personal de Estudio.</td><td>El Fragmento de la Autonomía espera en la cima de la montaña.</td><td>Desafío personal y planificación; presentación del plan para recuperar el fragmento. Bitácora R3.</td></tr>
+<tr><td>4 · Semana 4 · 2 h</td><td>Proyecto de vida y metas futuras.</td><td>Metas a corto, mediano y largo plazo; acciones; Ruta de Futuro visual.</td><td>En la Ciudad del Futuro se encuentra el último fragmento.</td><td>Toma de decisiones y planificación de metas; presentación de la ruta. Mapa R4.</td></tr>
+<tr><td>5 · Semana 5 · 3 h</td><td>Proyecto de vida integral.</td><td>Integración de evidencias; Mapa de Propósito Personal y reflexión final.</td><td>Con los cuatro fragmentos se restaura el Mapa del Propósito.</td><td>Integración y logro final; reconocimiento simbólico de Guardián o Guardiana. Recurso R5.</td></tr>
+</tbody></table></div>
+<h3>Tabla 3 · Página web y capturas</h3>
+<div class="tablewrap"><table><thead><tr><th>Elemento</th><th>Estado</th><th>Qué falta</th></tr></thead><tbody>
+<tr><td>URL de la página web</td><td>Pendiente de publicación</td><td>Crear/publicar el sitio en Google Sites y copiar su URL pública real.</td></tr>
+<tr><td>Captura de cada página del sitio</td><td>Pendiente</td><td>Capturas reales del sitio montado y publicado. Esta versión HTML no sustituye las capturas exigidas.</td></tr>
+</tbody></table></div>
+<h3>Referencias y créditos</h3>
+<p><strong>Autoría declarada:</strong> Ingrid Chaves, Rafael Méndez y Magda Artavia. <strong>Institución:</strong> Universidad Estatal a Distancia (UNED). <strong>Área:</strong> Humanidades.</p>
+<p><strong>Fuente curricular proporcionada:</strong> Universidad Estatal a Distancia (UNED), Programa de Humanidades. Curso Procesos y Estrategias para el aprendizaje a distancia de la UNED; fundamentación en el Modelo Pedagógico de la UNED.</p>
+<p class="small muted">Los datos bibliográficos completos (año, título exacto del programa/documento, unidad responsable, URL o datos editoriales) no están incluidos. Por ello no se construye una referencia APA 7 completa ni se inventan datos. Añadir los documentos efectivamente consultados y verificar sus datos antes de entregar.</p>
+<p><strong>Uso de IA:</strong> Se utilizaron herramientas de inteligencia artificial como apoyo para la generación de ideas, organización de contenidos y mejora de la redacción. La selección, adaptación, revisión y validación final de los materiales corresponde a las personas autoras del proyecto.</p>
+</section>
+<section class="section" id="cierre">
+<div class="story">
+<div class="eyebrow">El final de la aventura</div><h2>Tu chispa sigue contigo</h2>
+<p>Has recorrido los territorios de la Identidad, los Valores, la Autonomía y el Futuro. Al integrar tus hallazgos en el Mapa del Propósito Personal, construyes una visión propia de lo que da sentido a tu trayectoria universitaria.</p>
+<p><strong>Reconocimiento simbólico:</strong> Guardián o Guardiana de la Chispa del Propósito.</p>
+<p class="small muted">Este reconocimiento se describe como parte del diseño; no se emite aquí un certificado ni una insignia digital verificable.</p>
+<a class="btn dark" href="#inicio">Volver al inicio ↑</a>
+</div>
+</section>
+</main>
+<footer><div class="inner"><div><strong>La Chispa del Propósito</strong><p>Experiencia propuesta para Humanidades · UNED</p></div><div><p>Autoría: Ingrid Chaves, Rafael Méndez y Magda Artavia</p><p class="small">Prototipo web para montaje y revisión. Publicación y permisos pendientes.</p></div></div></footer>
+</body></html>
